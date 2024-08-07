@@ -1,0 +1,5 @@
+@use "./Components/Styles/spacing";
+
+.app-container {
+    padding: spacing.spacing();
+}

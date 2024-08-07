@@ -1,0 +1,16 @@
+$background-layer-0: #1f1f1f;
+$background-layer-1: #383838;
+$background-layer-2: $background-layer-0;
+
+$text-layer-1: #ffffff;
+$text-layer-2: #6482ad;
+
+@mixin layer-1 {
+    background-color: $background-layer-1;
+    color: $text-layer-1;
+}
+
+@mixin layer-2 {
+    background-color: $background-layer-2;
+    color: $text-layer-2;
+}

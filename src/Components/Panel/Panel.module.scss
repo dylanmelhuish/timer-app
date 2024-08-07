@@ -1,0 +1,16 @@
+@use "../Styles/colours";
+@use "../Styles/spacing";
+@use "../Styles/border";
+
+.panel-container {
+    padding: spacing.spacing();
+    border-radius: border.$border-radius;
+
+    &.layer-1 {
+        @include colours.layer-1();
+    }
+
+    &.layer-2 {
+        @include colours.layer-2();
+    }
+}
