@@ -6,7 +6,7 @@ import { faCog } from "@fortawesome/free-solid-svg-icons/faCog";
 
 export const App = () => {
     return (
-        <div className={styles["app-container"]}>
+        <Flex direction={"column"} className={styles["app-container"]}>
             <Flex direction={"row"} justify={"space-between"}>
                 <div>Timer</div>
                 <div>
@@ -14,6 +14,6 @@ export const App = () => {
                 </div>
             </Flex>
             <Timers />
-        </div>
+        </Flex>
     );
 };
