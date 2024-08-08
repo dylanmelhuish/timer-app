@@ -5,6 +5,7 @@ export type Timer = {
     elapsed: number;
     isRunning: boolean;
     isPaused: boolean;
+    addedAt: number;
 };
 
 export type TimerKeyless = Omit<Timer, "key">;
