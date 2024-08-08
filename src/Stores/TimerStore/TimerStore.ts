@@ -1,16 +1,16 @@
-import { Timer, TimerKeyless } from "./Timer.ts";
+import { TimerType, TimerTypeKeyless } from "./TimerType.ts";
 
 export class TimerStore {
     private static baseKey = "timer";
 
-    public static add = (timer: TimerKeyless): Timer => {
-        const key = crypto.randomUUID();
-        localStorage.setItem(`${this.baseKey}-${key}`, JSON.stringify({ key: key, ...timer }));
+    public static add = (timer: TimerTypeKeyless): TimerType => {
+        const id = crypto.randomUUID();
+        localStorage.setItem(`${this.baseKey}-${id}`, JSON.stringify({ id: id, ...timer }));
 
-        return { key, ...timer };
+        return { id, ...timer };
     };
 
-    public static getAll = (): Timer[] => {
+    public static getAll = (): TimerType[] => {
         const keys = Object.keys(localStorage).filter(key => key.startsWith(this.baseKey));
 
         return (
@@ -20,9 +20,9 @@ export class TimerStore {
                     if (!timer) {
                         return undefined;
                     }
-                    return JSON.parse(timer) as Timer;
+                    return JSON.parse(timer) as TimerType;
                 })
-                .filter(timer => !!timer) as Timer[]
+                .filter(timer => !!timer) as TimerType[]
         ).sort((a, b) => b.addedAt - a.addedAt);
     };
 }

@@ -1,3 +1,3 @@
 export { TimerStore } from "./TimerStore";
 
-export type { Timer, TimerKeyless } from "./Timer";
+export type { TimerType, TimerTypeKeyless } from "./TimerType.ts";

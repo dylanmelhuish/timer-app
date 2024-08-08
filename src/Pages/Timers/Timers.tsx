@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
-import { Timer, TimerStore } from "../../Stores";
+import { TimerStore, TimerType } from "../../Stores";
 import { Flex, Panel } from "../../Components";
+import { Timer } from "./Timer";
 
 export const Timers = () => {
-    const [timers, setTimers] = useState<Timer[]>([]);
+    const [timers, setTimers] = useState<TimerType[]>([]);
 
     const handleAdd = useCallback(() => {
         const timer = TimerStore.add({
@@ -13,6 +14,7 @@ export const Timers = () => {
             length: 60,
             originalLength: 60,
             addedAt: Date.now(),
+            label: "New Timer",
         });
 
         setTimers(p => [timer, ...p]);
@@ -27,7 +29,7 @@ export const Timers = () => {
     return (
         <Flex direction={"column"}>
             {timers.map(timer => (
-                <Panel key={timer.key}>{timer.key}</Panel>
+                <Timer key={timer.id} {...timer} />
             ))}
             <Panel onClick={handleAdd}>Add</Panel>
         </Flex>
